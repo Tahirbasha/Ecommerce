@@ -1,6 +1,5 @@
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import {AiFillCloseCircle} from 'react-icons/ai'
-import {withRouter} from 'react-router-dom'
 
 import CartContext from '../../context/CartContext'
 
@@ -10,11 +9,10 @@ const CartItem = props => (
   <CartContext.Consumer>
     {value => {
       const {deleteCartItem} = value
-      const {cartItemDetails, history} = props
+      const {cartItemDetails} = props
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
       const onDeleteCartItem = () => {
         deleteCartItem(id)
-        history.go()
       }
       return (
         <li className="cart-item">
@@ -57,4 +55,4 @@ const CartItem = props => (
   </CartContext.Consumer>
 )
 
-export default withRouter(CartItem)
+export default CartItem
